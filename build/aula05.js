@@ -1,4 +1,13 @@
 "use strict";
-let cursos = ["JavaScript", "TypeScript", "C#"];
+let vteste;
+vteste = "Luan";
+vteste = 500;
+vteste = true;
+let cursos = ["JavaScript", "TypeScript", "C#", 786, true];
+let valores = [10, 200, 3000];
 cursos.push("React");
+cursos.push(10000);
+valores.push(2212);
 console.log(cursos);
+console.log(valores);
+console.log(vteste);

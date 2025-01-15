@@ -1,0 +1,1 @@
+//Curso de Typescript Completo #P07 Aprendendo sobre TUPLAS em Typescript
