@@ -9,9 +9,23 @@ var dias;
     dias[dias["sexta"] = 5] = "sexta";
     dias[dias["sabado"] = 6] = "sabado";
 })(dias || (dias = {}));
-console.log(dias.domingo);
-console.log(dias['domingo']);
-console.log(dias[1]);
 const d = new Date();
-console.log(d.getDay());
-console.log(dias[d.getDay()]);
+var cores;
+(function (cores) {
+    cores["branco"] = "#fff";
+    cores["preto"] = "#000";
+    cores["vermelho"] = "#f00";
+    cores["verde"] = "#0f0";
+    cores["azul"] = "#00f";
+})(cores || (cores = {}));
+console.log(cores.branco);
+console.log(cores['branco']);
+var TipoUsuario;
+(function (TipoUsuario) {
+    TipoUsuario[TipoUsuario["User"] = 34] = "User";
+    TipoUsuario[TipoUsuario["ADM"] = 56] = "ADM";
+    TipoUsuario[TipoUsuario["Super"] = 34] = "Super";
+})(TipoUsuario || (TipoUsuario = {}));
+console.log(TipoUsuario.ADM);
+const tp = TipoUsuario.User;
+console.log(tp);
