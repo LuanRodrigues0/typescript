@@ -19,10 +19,18 @@ class Conta {
         return this.SaldoConta;
     }
     deposito(valor) {
+        if (valor < 0) {
+            console.log("valor inválido");
+            return;
+        }
         this.SaldoConta += valor;
     }
     saque(valor) {
-        if (valor >= this.SaldoConta) {
+        if (valor < 0) {
+            console.log("valor inválido");
+            return;
+        }
+        if (valor <= this.SaldoConta) {
             this.SaldoConta -= valor;
         }
         else {
@@ -50,6 +58,14 @@ class ContaPF extends Conta {
             super.deposito(valor);
         }
     }
+    saque(valor) {
+        if (valor > 1000) {
+            console.log("Valor de saque muito grande para essa conta");
+        }
+        else {
+            super.saque(valor);
+        }
+    }
 }
 class ContaPJ extends Conta {
     cnpj;
@@ -71,12 +87,16 @@ class ContaPJ extends Conta {
             super.deposito(valor);
         }
     }
+    saque(valor) {
+        if (valor > 10000) {
+            console.log("Valor de saque muito grande para essa conta");
+        }
+        else {
+            super.saque(valor);
+        }
+    }
 }
 const cont1 = new ContaPF(9999, "Luan");
 const cont2 = new ContaPJ(445455, "Test");
-cont1.deposito(1000);
-cont1.deposito(236);
-cont1.deposito(444);
+cont1.saque(680);
 console.log(cont1.saldo());
-cont2.deposito(10000);
-console.log(cont2.saldo());
