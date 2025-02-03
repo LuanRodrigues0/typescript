@@ -4,9 +4,9 @@
 //Private: Acessado somente na própria classe
 //protected: Acessado somente na própria classe e nas classes filhos.
 
-
-class Conta{
-     protected numero:number;
+//Classe Abstrata
+ abstract class Conta{
+     private readonly  numero:number;
      private SaldoConta:number;
     protected titular:string;
     constructor(titular:string){
@@ -24,16 +24,20 @@ class Conta{
      
     }
 
-    public saldo():number{
+      get  saldo():number{ //getter
          return this.SaldoConta
     }
+     private set saldo(saldoContaParam){// setter
+           this.SaldoConta=saldoContaParam
+      }
 
+      
     protected deposito(valor:number){
       if(valor < 0){
          console.log("valor inválido")
          return
       } 
-        this.SaldoConta+=valor
+        this.saldo+=valor
     }
 
     protected saque(valor:number){
@@ -42,7 +46,7 @@ class Conta{
          return
       }
       if(valor <= this.SaldoConta){
-      this.SaldoConta-=valor
+      this.saldo-=valor
       }else{
          console.log("Não foi possível sacar! saldo insuficiente.")
       }
@@ -125,12 +129,14 @@ const cont2=new ContaPJ(445455,"Test")
 // cont2.info()
 
 
-// cont1.deposito(1000)
-// cont1.deposito(236)
-// cont1.deposito(444)
-cont1.saque(680)
+cont1.deposito(1000)
+cont1.deposito(236)
+cont1.deposito(444)
+//cont1.saque(680)
 
-console.log(cont1.saldo())
+        console.log(cont1.saldo)
+
+
 
 
 // cont2.deposito(10000)
