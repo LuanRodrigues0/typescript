@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.objeto = exports.pessoa = void 0;
-class pessoa {
+exports.Coisas = exports.Objeto = exports.Pessoa = void 0;
+const Coisas = ["corda", "Pilha", "Lampada", "Tristeza", "minecraft"];
+exports.Coisas = Coisas;
+class Pessoa {
     nome;
     altura;
     constructor(nome, altura) {
@@ -9,11 +11,12 @@ class pessoa {
         this.altura = altura;
     }
 }
-exports.pessoa = pessoa;
-class objeto {
+exports.Pessoa = Pessoa;
+class Objeto {
     nome;
     constructor(nome) {
         this.nome = nome;
     }
 }
-exports.objeto = objeto;
+exports.Objeto = Objeto;
+exports.default = Pessoa;
