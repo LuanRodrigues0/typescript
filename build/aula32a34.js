@@ -32,7 +32,7 @@ var Veiculos;
             return this.nome;
         }
         get estaLigado() {
-            return (this.motor.liga ? "sim" : "Não");
+            return (this.motor.ligad ? "sim" : "Não");
         }
         get MinhaPotencia() {
             return this.motor.poten;
@@ -46,7 +46,7 @@ var Veiculos;
     Veiculos.CarroEsportivo = CarroEsportivo;
     class CarroPopular extends Carro {
         constructor(nome, cor) {
-            super(nome, new Motores.Motor(7, 335, new Motores.Turbo(200)), 4);
+            super(nome, new Motores.Motor(7, 335), 4);
         }
     }
     Veiculos.CarroPopular = CarroPopular;
@@ -73,11 +73,11 @@ var Motores;
             this.cilindros = cilin;
             this.potencia = pot + (turbo ? +turbo.poten : 0);
         }
-        set liga(liga) {
-            this.ligado = liga;
+        set liga(ligado) {
+            this.ligado = ligado;
         }
-        get liga() {
-            return this.liga;
+        get ligad() {
+            return this.ligado;
         }
         get poten() {
             return this.potencia;
@@ -85,3 +85,17 @@ var Motores;
     }
     Motores.Motor = Motor;
 })(Motores || (Motores = {}));
+const carro1 = new Veiculos.CarroEsportivo("Rapido", 3);
+const carro2 = new Veiculos.CarroPopular("top", 0);
+carro1.ligar();
+carro2.ligar();
+console.log(`Nome: ${carro1.meuNome}`);
+console.log(`Cor: ${carro1.minhaCor}`);
+console.log(`Potência: ${carro1.MinhaPotencia}`);
+console.log(`EstáLigado?: ${carro1.estaLigado}`);
+console.log(`-----------------------------------`);
+console.log(`Nome: ${carro2.meuNome}`);
+console.log(`Cor: ${carro2.minhaCor}`);
+console.log(`Potência: ${carro2.MinhaPotencia}`);
+console.log(`EstáLigado?: ${carro2.estaLigado}`);
+console.log(`-----------------------------------`);
